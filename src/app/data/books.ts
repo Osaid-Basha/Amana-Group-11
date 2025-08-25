@@ -874,5 +874,25 @@ export const books: Book[] = [
     reviewCount: 16,
     inStock: true,
     featured: true,
+  },
+  {
+    id: '46',
+    title: 'Group 11',
+    author: 'Dr.Osaid Basha',
+    description: 'Group 11 is a group of elements in the periodic table. It is a group of elements that have the same number of valence electrons. The group 11 elements are: Scandium, Yttrium, and Lanthanum.',
+    price: 148.95,
+    image: '/images/book3.jpg',
+    isbn: '978-4678901234',
+    genre: ['Physics', 'Computer Science'],
+    tags: ['Artificial Intelligence', 'Machine Learning', 'Deep Learning'],
+    datePublished: '2023-08-20',
+    pages: 892,
+    language: 'English',
+    publisher: 'Al-Kindi Quantum Institute',
+    reviewCount: 16,
+    rating: 4.8,  
+    inStock: true,
+    featured: false,
+
   }
 ];

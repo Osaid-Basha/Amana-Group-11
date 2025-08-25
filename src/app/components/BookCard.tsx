@@ -82,20 +82,20 @@ const BookCard: React.FC<BookCardProps> = ({ book, onAddToCart }) => {
   };
 
   return (
-    <div className="bg-white rounded-lg shadow-md overflow-hidden transform hover:-translate-y-1 transition-transform duration-300">
+    <div className="bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden transform hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
       {/* Book Cover - Clickable */}
       <Link href={`/book/${book.id}`} className="block cursor-pointer">
-        <div className="relative h-64 w-full bg-gray-200 flex items-center justify-center hover:bg-gray-300 transition-colors duration-200">
+        <div className="relative h-64 w-full bg-gray-100 flex items-center justify-center hover:bg-gray-200 transition-colors duration-200">
           {/* Book Icon Placeholder */}
-          <div className="text-6xl text-gray-400">📚</div>
+          <div className="text-6xl md:text-7xl text-gray-400">📚</div>
         </div>
       </Link>
       
       {/* Book Information */}
-      <div className="p-4">
+      <div className="p-5">
         <Link href={`/book/${book.id}`} className="block cursor-pointer">
-          <h3 className="text-lg font-semibold text-gray-800 truncate hover:text-blue-600 transition-colors duration-200">{book.title}</h3>
-          <p className="text-sm text-gray-600 mt-1">by {book.author}</p>
+          <h3 className="text-xl md:text-2xl font-semibold text-gray-900 truncate hover:text-blue-600 transition-colors duration-200">{book.title}</h3>
+          <p className="text-sm md:text-base text-gray-600 mt-1">by {book.author}</p>
         </Link>
         
         <div className="flex items-center mt-2">
@@ -103,9 +103,9 @@ const BookCard: React.FC<BookCardProps> = ({ book, onAddToCart }) => {
           <span className="text-xs text-gray-500 ml-2">({book.reviewCount} reviews)</span>
         </div>
         
-        <div className="mt-2">
+        <div className="mt-3">
           {book.genre.slice(0, 2).map((g) => (
-            <span key={g} className="inline-block bg-gray-200 rounded-full px-2 py-1 text-xs font-semibold text-gray-700 mr-2 mb-2">
+            <span key={g} className="inline-block bg-blue-50 border border-blue-100 rounded-full px-2.5 py-1 text-xs font-semibold text-blue-700 mr-2 mb-2">
               {g}
             </span>
           ))}
@@ -115,16 +115,16 @@ const BookCard: React.FC<BookCardProps> = ({ book, onAddToCart }) => {
         </div>
         
         <div className="flex items-center justify-between mt-3">
-          <p className="text-xl font-bold text-gray-900">${book.price.toFixed(2)}</p>
+          <p className="text-2xl font-extrabold text-blue-700">${book.price.toFixed(2)}</p>
           {!book.inStock && (
             <span className="text-xs text-red-600 font-medium">Out of Stock</span>
           )}
         </div>
         
         {/* Action Buttons */}
-        <div className="flex gap-2 mt-4">
+        <div className="flex gap-3 mt-5">
           <Link href={`/book/${book.id}`} className="flex-1 cursor-pointer">
-            <button className="w-full px-3 py-2 text-sm border border-gray-300 text-gray-700 rounded-md hover:bg-gray-50 transition-colors duration-200 cursor-pointer">
+            <button className="w-full px-3 py-2.5 text-sm md:text-base border border-blue-300 text-blue-700 rounded-md hover:bg-blue-50 transition-colors duration-200 cursor-pointer">
               View Details
             </button>
           </Link>
@@ -132,7 +132,7 @@ const BookCard: React.FC<BookCardProps> = ({ book, onAddToCart }) => {
           <button
             onClick={handleAddToCart}
             disabled={!book.inStock || isAddingToCart}
-            className={`flex-1 px-3 py-2 text-sm rounded-md transition-colors duration-200 ${
+            className={`flex-1 px-3 py-2.5 text-sm md:text-base rounded-md transition-colors duration-200 shadow-sm ${
               !book.inStock
                 ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
                 : showSuccess
